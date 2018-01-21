@@ -11,4 +11,21 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+$(document).ready(function() {
+	var todo_form = document.getElementById('todo_form');
+	todo_form.style.visibility = "hidden";
+	todo_form.style.display = "none";
+
+	$("#add_todo").click(function(){
+		todo_form.style.visibility = "visible";
+		todo_form.style.display = "block";
+	});
+
+	$("#submit_todo").click(function(event) {
+	  event.preventDefault();
+	  $("#new_todo").submit();
+	});
+});
