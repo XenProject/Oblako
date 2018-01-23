@@ -9,6 +9,7 @@ class TodosController < ApplicationController
 		end
 	end
 	def update
-
+		@todo = Todo.find(params[:id])
+		@todo.update(:isCompleted => !@todo.isCompleted)
 	end
 end

@@ -22,10 +22,31 @@ $(document).ready(function() {
 	$("#add_todo").click(function(){
 		todo_form.style.visibility = "visible";
 		todo_form.style.display = "block";
+
+		$("#todo_form").css('z-index','2');
+    	$("#overlay").fadeIn(300);
 	});
 
 	$("#submit_todo").click(function(event) {
 	  event.preventDefault();
 	  $("#new_todo").submit();
+	});
+
+	$("#cancel_todo").click(function(event) {
+		window.location.href = "";
+	});
+
+	$('input').iCheck({
+	    checkboxClass: 'icheckbox_minimal-blue',
+	    radioClass: 'iradio_minimal-blue',
+	    increaseArea: '20%' // optional
+	});
+
+	$('input').on('ifToggled', function(event){
+	  $(this).closest("form").submit();
+	});
+
+	$('.select2-selection').select2({
+		minimumResultsForSearch: -1
 	});
 });
